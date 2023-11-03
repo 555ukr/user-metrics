@@ -1,6 +1,5 @@
 var cron = require('node-cron');
 const axios = require('axios');
-// const ga4mp = require('ga4-mp');
 const http = require('http')
 const fs = require('fs')
 
@@ -11,8 +10,6 @@ const clientId = "710475967.1699020165";
 const measurementId = "G-FT32LKB4ZZ"
 
 const pushMetric = async (data) => {
-  // let ga4 = ga4mp.createClient(secretKey, measurementId, clientId);
-  // const result = ga4.send(events.map(rate => ({...rate, name: "usd_uah_rate"})));
   const result = await axios.post(`https://www.google-analytics.com/mp/collect?api_secret=${secretKey}&measurement_id=${measurementId}`,
       {
         "client_id": clientId,
